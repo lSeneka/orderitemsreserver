@@ -20,7 +20,7 @@ public class OrdersEndpoint {
     @BlobOutput(name = "payload", path = "orders/{sessionId}.json", connection = "AZURE_STORAGE_CONNECTION_STRING")
     public void saveOrder(
             @HttpTrigger(name = "req", route = "v1/orders", methods = {
-                    HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<OrderRequest>> request,
+                    HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<OrderRequest>> request,
             @BlobOutput(name = "payload", path = "orders/{sessionId}.json", connection = "AZURE_STORAGE_CONNECTION_STRING") OutputBinding<String> blobOrder,
             final ExecutionContext context) {
         if (request.getBody().isPresent()) {
