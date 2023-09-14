@@ -17,7 +17,6 @@ import java.util.Optional;
  */
 public class OrdersEndpoint {
     @FunctionName("AddOrUpdateUserOrder")
-    @BlobOutput(name = "payload", path = "orders/{sessionId}.json", connection = "AZURE_STORAGE_CONNECTION_STRING")
     public void saveOrder(
             @HttpTrigger(name = "req", route = "v1/orders", methods = {
                     HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<OrderRequest>> request,
